@@ -5,10 +5,10 @@ namespace DrewM\Morse;
 class Morse 
 {
  
-	public static function featureExists($featurePath)
+	public static function featureExists( $featureID )
 	{
 		try {
-			$feature = self::instantiateFromPath($featurePath);
+			$feature = self::instantiateFromFeatureID($featureID);
 			
 			if (is_callable($feature)) {
 				return call_user_func($feature);	
@@ -20,12 +20,12 @@ class Morse
 		return null;
 	}
 
-	public static function getFirstAvailable($featurePaths = array())
+	public static function getFirstAvailable( $featureIDs = array() )
 	{
-		if (is_array($featurePaths) && count($featurePaths)) {
-			foreach($featurePaths as $featurePath) {
-				if (self::featureExists($featurePath)) {
-					$parts = explode('/', $featurePath);
+		if (is_array($featureIDs) && count($featureIDs)) {
+			foreach($featureIDs as $featureID) {
+				if (self::featureExists($featureID)) {
+					$parts = explode('/', $featureID);
 					return $parts[1];
 				}
 			}
@@ -34,10 +34,10 @@ class Morse
 		return null;
 	}
 
-	private static function instantiateFromPath($featurePath)
+	private static function instantiateFromFeatureID( $featureID )
 	{
-		$parts     = explode('/', $featurePath);
-		$classname = __NAMESPACE__ . '\\Feature\\' . \ucwords($parts[0]);
+		$parts     = explode('/', $featureID);
+		$classname = __NAMESPACE__ . '\\Feature\\' . \ucwords(\str_replace('-', '_', $parts[0]));
 		$funcname  = 'test' . \ucwords(\str_replace('-', '_', $parts[1]));
 
 		try {
