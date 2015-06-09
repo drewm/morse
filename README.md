@@ -4,6 +4,8 @@ Morse is a feature detection library for PHP code that needs to run in multiple 
 
 [![Build Status](https://travis-ci.org/drewm/morse-php.svg?branch=master)](https://travis-ci.org/drewm/morse-php)
 
+Supports PHP 5.3 and up.
+
 ## How to
 
 ```php
@@ -95,6 +97,7 @@ Feature detection tests currently exist for the following:
 	- pdo-sqlite
 - file
 	- finfo
+	- zip
 - http
 	- curl
 	- filter

@@ -18,4 +18,9 @@ class File extends \DrewM\Morse\Feature
 
 	}
 
+	function function testZip()
+	{
+		return class_exists('ZipArchive');
+	}
+
 }
