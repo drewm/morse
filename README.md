@@ -52,18 +52,24 @@ switch($best_match) {
 
 Feature detection tests currently exist for the following:
 
-- http
-	- curl
-	- sockets
-	- filter
-- image
-	- gd
-	- imagick
+
+- cache
+	- apc
+	- memcache
+	- memcached
+	- opcache
 - db
+	- mysqli
 	- pdo
 	- pdo-mysql
 	- pdo-sqlite
-	- mysqli
+- http
+	- curl
+	- filter
+	- sockets
+- image
+	- gd
+	- imagick
 - string
 	- multibyte
 	- transliterate
