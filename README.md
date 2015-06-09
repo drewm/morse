@@ -50,6 +50,8 @@ switch($best_match) {
 
 ## Features
 
+Feature detection tests currently exist for the following:
+
 - http
 	- curl
 	- sockets
@@ -66,3 +68,28 @@ switch($best_match) {
 	- multibyte
 	- transliterate
 
+## Contributing feature tests
+
+Feature tests are functions in the appropriate class that return true or false to indicate support for a feature.
+
+Let's say you wanted to add a feature detection test for a database called Pongo. You would test for it with the feature identifier `db/pongo`, which would map to a function called `testPongo` in the `Feature/Db.php` class file.
+
+Both half of the feature identifier are run through `ucwords()` to correct case. Dashes are changed to underscores. So `db/pongo-panda` would map to `Feature\Db::testPongo_Panda`.
+
+```php
+namespace DrewM\Morse\Feature;
+
+class Db extends \DrewM\Morse\Feature
+{
+	public function testPongo_Panda()
+	{
+		// do whatever needs to be done to determine support
+		// return true for support, false for no support;
+		return true;
+	}
+}
+```
+
+Feature classes should be big concepts (image, string, database) and the tests themselves should be specific features.
+
+Please write a corresponding PHPUnit test for the feature you're adding. Note that you can't rely on the environment, so just test that the detection works and returns a sane value.
