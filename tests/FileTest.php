@@ -12,7 +12,7 @@ class FileTest extends PHPUnit_Framework_TestCase {
 
 	public function testZip()
 	{
-		$result = Morse::featureExists('file/finfo');
+		$result = Morse::featureExists('file/zip');
 		$this->assertTrue($result===true || $result===false);
 	}
 
