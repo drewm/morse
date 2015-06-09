@@ -1,0 +1,23 @@
+{
+    "name": "drewm/morse-php",
+    "version": "0.1",
+    "description": "A PHP feature detection library for code portability",
+    "license": "MIT",
+    "keywords": ["morse"],
+    "authors": [
+        {
+            "name": "Drew McLellan",
+            "email": "drew.mclellan@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "DrewM\\Morse\\": "src",
+            "DrewM\\Morse\\Feature\\": "src/Feature"
+        }
+    }
+}
