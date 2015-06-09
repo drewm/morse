@@ -12,20 +12,20 @@ class MorseTest extends PHPUnit_Framework_TestCase {
 
 	public function testGetFirstAvailable()
 	{
-		$this->assertEquals(Morse::getFirstAvailable([
+		$this->assertEquals(Morse::getFirstAvailable(array(
 			'image/fake-negative',
 			'image/fake-negative',
 			'image/fake-positive',
-		]), 'fake-positive');
+		)), 'fake-positive');
 
-		$this->assertEquals(Morse::getFirstAvailable([
+		$this->assertEquals(Morse::getFirstAvailable(array(
 			'db/fake-positive',
 			'db/fake-negative',
-		]), 'fake-positive');
+		)), 'fake-positive');
 
-		$this->assertSame(Morse::getFirstAvailable([
+		$this->assertSame(Morse::getFirstAvailable(array(
 			'string/fake-negative',
-		]), null);
+		)), null);
 	}
 
 }
