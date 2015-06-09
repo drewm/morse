@@ -4,15 +4,18 @@ namespace DrewM\Morse\Feature;
 
 class File extends \DrewM\Morse\Feature
 {
-	public function testFinfo_Class()
+	public function testFinfo()
 	{
-		return (defined('FILEINFO_MIME') && class_exists('finfo'));
-	}
+		if (defined('FILEINFO_MIME') && class_exists('finfo')) {
+			return \DrewM\Morse\Morse::CLASS_SUPPORT;
+		}
 
-	public function testFinfo_Function()
-	{
-		return (defined('FILEINFO_MIME') && function_exists('finfo_open'));
-	}
+		if (defined('FILEINFO_MIME') && function_exists('finfo_open')) {
+			return \DrewM\Morse\Morse::FUNCTION_SUPPORT;	
+		}
 
+		return false;
+
+	}
 
 }

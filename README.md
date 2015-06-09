@@ -22,6 +22,37 @@ if (Morse::featureExists('http/curl')) {
 Morse::featureExists('group/feature');
 ```
 
+Features that may be available in either newer class support or older function support can return a value of `Morse::CLASS_SUPPORT` or `Morse::FUNCTION_SUPPORT`, both of which are truthy.
+
+So this works:
+
+```php
+if (Morse::featureExists('file/finfo')) {
+	...
+}
+```
+
+but equally:
+
+```php
+switch(Morse::featureExists('file/finfo')) {
+	case Morse::CLASS_SUPPORT: 
+		$finfo = new finfo(...);
+		break;
+
+	case Morse::FUNCTION_SUPPORT:
+		$finfo = finfo_open(...);
+		break;
+
+	default:
+		die('No finfo support!');
+		break;
+}
+```
+
+If class support is found, this returns regardless of function support.
+
+
 ## Finding the first match in a list
 
 ```php
@@ -52,7 +83,6 @@ switch($best_match) {
 
 Feature detection tests currently exist for the following:
 
-
 - cache
 	- apc
 	- memcache
@@ -63,6 +93,8 @@ Feature detection tests currently exist for the following:
 	- pdo
 	- pdo-mysql
 	- pdo-sqlite
+- file
+	- finfo
 - http
 	- curl
 	- filter
@@ -95,6 +127,8 @@ class Db extends \DrewM\Morse\Feature
 	}
 }
 ```
+
+If a feature can exist in both class and function form, return `\DrewM\Morse\Morse::CLASS_SUPPORT` or `\DrewM\Morse\Morse::FUNCTION_SUPPORT` as your truthy value. Check for classes first.
 
 Feature classes should be big concepts (image, string, database) and the tests themselves should be specific features.
 
