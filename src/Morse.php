@@ -4,6 +4,8 @@ namespace DrewM\Morse;
  
 class Morse 
 {
+	const CLASS_SUPPORT = 1;
+	const FUNCTION_SUPPORT = 2;
  
 	public static function featureExists( $featureID )
 	{
