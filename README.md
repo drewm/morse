@@ -2,6 +2,8 @@
 
 Morse is a feature detection library for PHP code that needs to run in multiple different environments.
 
+[![Build Status](https://travis-ci.org/drewm/morse-php.svg?branch=master)](https://travis-ci.org/drewm/morse-php)
+
 ## How to
 
 ```php
