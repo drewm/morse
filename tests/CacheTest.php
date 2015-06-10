@@ -2,8 +2,8 @@
  
 use DrewM\Morse\Morse;
  
-class CacheTest extends PHPUnit_Framework_TestCase {
- 
+class CacheTest extends PHPUnit_Framework_TestCase 
+{
 	public function testMemcache()
 	{
 		$result = Morse::featureExists('cache/memcache');
