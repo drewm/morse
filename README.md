@@ -142,8 +142,29 @@ class Db extends \DrewM\Morse\Feature
 }
 ```
 
-If a feature can exist in both class and function form, return `\DrewM\Morse\Morse::CLASS_SUPPORT` or `\DrewM\Morse\Morse::FUNCTION_SUPPORT` as your truthy value. Check for classes first.
+If a feature can exist in both OO-style classes and procedural-style function form, return `\DrewM\Morse\Morse::CLASS_SUPPORT` or `\DrewM\Morse\Morse::FUNCTION_SUPPORT` as your truthy value. Check for classes first.
+
+```php
+namespace DrewM\Morse\Feature;
+
+class Db extends \DrewM\Morse\Feature
+{
+	public function testPongo_Panda()
+	{
+		if (class_exists('PongoPanda')) {
+			return \DrewM\Morse\Morse::CLASS_SUPPORT;
+		}
+
+		if (function_exists('pongo_panda')) {
+			return \DrewM\Morse\Morse::FUNCTION_SUPPORT;	
+		}
+
+		return false;
+	}
+}
+```
 
 Feature classes should be big concepts (image, string, database) and the tests themselves should be specific features.
 
 Please write a corresponding PHPUnit test for the feature you're adding. Note that you can't rely on the environment, so just test that the detection works and returns a sane value.
+
