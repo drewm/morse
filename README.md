@@ -103,13 +103,16 @@ Feature detection tests currently exist for the following:
 	- pdo
 	- pdo-mysql
 	- pdo-sqlite
+- crypto
+	- mcrypt
+	- openssl
+	- password
 - file
 	- finfo
 	- zip
 - http
 	- curl
 	- filter
-	- openssl
 	- sockets
 - image
 	- gd
