@@ -2,8 +2,8 @@
  
 use DrewM\Morse\Morse;
  
-class MorseTest extends PHPUnit_Framework_TestCase {
- 
+class MorseTest extends PHPUnit_Framework_TestCase 
+{
 	public function testHelloWorld()
 	{
 		$morse = new Morse;
