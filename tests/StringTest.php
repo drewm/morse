@@ -18,7 +18,7 @@ class StringTest extends PHPUnit_Framework_TestCase {
 
 	public function testJson()
 	{
-		$result = Morse::featureExists('string/transliterate');
+		$result = Morse::featureExists('string/json');
 		$this->assertTrue($result===true || $result===false);
 	}
 
