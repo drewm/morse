@@ -6,7 +6,7 @@ class Number extends \DrewM\Morse\Feature
 {
 	public function testBigint()
 	{
-		return (PHP_INT_MAX != 2147483647);
+		return !(PHP_INT_MAX <= 2147483647);
 	}
 
 }
