@@ -116,6 +116,7 @@ Feature detection tests currently exist for the following:
 - number
 	- bigint
 - string
+	- json
 	- multibyte
 	- transliterate
 

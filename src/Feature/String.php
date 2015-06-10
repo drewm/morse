@@ -13,4 +13,9 @@ class String extends \DrewM\Morse\Feature
 	{
 		return class_exists('Transliterator');
 	}
+
+	public function testJson()
+	{
+		return function_exists('json_encode');
+	}
 }
