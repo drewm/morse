@@ -105,6 +105,8 @@ Feature detection tests currently exist for the following:
 - image
 	- gd
 	- imagick
+- number
+	- bigint
 - string
 	- multibyte
 	- transliterate
