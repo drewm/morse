@@ -22,4 +22,9 @@ class HttpTest extends PHPUnit_Framework_TestCase {
 		$this->assertTrue($result===true || $result===false);
 	}
 
+	public function testOpenssl()
+	{
+		$result = Morse::featureExists('http/openssl');
+		$this->assertTrue($result===true || $result===false);
+	}
 }

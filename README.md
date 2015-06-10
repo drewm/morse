@@ -109,6 +109,7 @@ Feature detection tests currently exist for the following:
 - http
 	- curl
 	- filter
+	- openssl
 	- sockets
 - image
 	- gd

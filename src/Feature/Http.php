@@ -18,4 +18,9 @@ class Http extends \DrewM\Morse\Feature
 	{
 		return function_exists('filter_var');
 	}
+
+	public function testOpenssl()
+	{
+		return (defined('X509_PURPOSE_ANY') && function_exists('openssl_open'));
+	}
 }
