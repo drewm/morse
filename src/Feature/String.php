@@ -11,7 +11,15 @@ class String extends \DrewM\Morse\Feature
 
 	public function testTransliterate()
 	{
-		return class_exists('Transliterator');
+		if (class_exists('Transliterator')) {
+			return \DrewM\Morse\Morse::CLASS_SUPPORT;
+		}
+
+		if (function_exists('transliterator_transliterate')) {
+			return \DrewM\Morse\Morse::FUNCTION_SUPPORT;	
+		}
+
+		return false;
 	}
 
 	public function testJson()
