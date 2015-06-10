@@ -24,6 +24,6 @@ class String extends \DrewM\Morse\Feature
 
 	public function testJson()
 	{
-		return function_exists('json_encode');
+		return (function_exists('json_encode') && function_exists('json_decode'));
 	}
 }
