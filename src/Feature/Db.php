@@ -24,5 +24,9 @@ class Db extends \DrewM\Morse\Feature
 	{
 		return (defined('MYSQLI_INIT_COMMAND') && class_exists('mysqli'));
 	}
-
+	
+	public function testPdo_Pgsql()
+	{
+		return extension_loaded('pdo_pgsql');
+	}
 }

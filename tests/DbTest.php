@@ -28,4 +28,9 @@ class DbTest extends PHPUnit_Framework_TestCase
 		$this->assertTrue($result===true || $result===false);
 	}
 
+	public function testPdo_Pgsql()
+	{
+		$result = Morse::featureExists('db/pdo-pgsql');
+		$this->assertTrue($result===true || $result===false);
+	}
 }
