@@ -14,6 +14,14 @@ Most tests are really simple - just a `function_exists()` or similar - but you c
 
 Some tests aren't so simple, perhaps due to _that one weird PHP bug_ or unusual hosting configurations or whatever. You have to do a weird dance to check if something is _really_ going to work. Morse takes care of that, and keeps the weird dancing out of your application code, safe from the next developer who thinks it's dumb and rips it out.
 
+## Install 
+
+Either download and include, or install via Composer:
+
+```
+composer require drewm/morse-php
+```
+
 ## How to
 
 ```php
