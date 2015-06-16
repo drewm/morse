@@ -26,4 +26,9 @@ class String extends \DrewM\Morse\Feature
 	{
 		return (function_exists('json_encode') && function_exists('json_decode'));
 	}
+
+	public function testIconv()
+	{
+		return (function_exists('iconv'));
+	}
 }
