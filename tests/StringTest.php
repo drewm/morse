@@ -27,4 +27,10 @@ class StringTest extends PHPUnit_Framework_TestCase
 		$result = Morse::featureExists('string/iconv');
 		$this->assertTrue($result===true || $result===false);
 	}
+
+	public function testCtype()
+	{
+		$result = Morse::featureExists('string/ctype');
+		$this->assertTrue($result===true || $result===false);
+	}
 }
