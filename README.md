@@ -124,6 +124,7 @@ Feature detection tests currently exist for the following:
 	- json
 	- multibyte
 	- transliterate
+	- iconv
 - protocol
 	- ldap
 
