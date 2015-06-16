@@ -125,6 +125,7 @@ Feature detection tests currently exist for the following:
 	- multibyte
 	- transliterate
 	- iconv
+	- ctype
 - protocol
 	- ldap
 

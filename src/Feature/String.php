@@ -31,4 +31,9 @@ class String extends \DrewM\Morse\Feature
 	{
 		return (function_exists('iconv'));
 	}
+
+	public function testCtype()
+	{
+		return (function_exists('ctype_alnum') && function_exists('ctype_lower'));
+	}
 }
