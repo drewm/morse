@@ -106,16 +106,16 @@ Feature detection tests currently exist for the following:
 	- memcache
 	- memcached
 	- opcache
-- db
-	- mysqli
-	- pdo
-	- pdo-mysql
-	- pdo-sqlite
-	- pdo-pgsql
 - crypto
 	- mcrypt
 	- openssl
 	- password
+- db
+	- mysqli
+	- pdo
+	- pdo-mysql
+	- pdo-pgsql
+	- pdo-sqlite
 - file
 	- finfo
 	- zip
@@ -128,14 +128,14 @@ Feature detection tests currently exist for the following:
 	- imagick
 - number
 	- bigint
+- protocol
+	- ldap
 - string
+	- ctype
+	- iconv
 	- json
 	- multibyte
 	- transliterate
-	- iconv
-	- ctype
-- protocol
-	- ldap
 
 ## Contributing feature tests
 
