@@ -15,7 +15,7 @@ class Morse
 			if (is_callable($feature)) {
 				return call_user_func($feature);	
 			}
-		} catch ( Exception $e ) {
+		} catch ( \Exception $e ) {
 			return null;
 		}
 
@@ -44,7 +44,7 @@ class Morse
 
 		try {
 			$class = new $classname;	
-		} catch ( Exception $e ) {
+		} catch ( \Exception $e ) {
 			die ($e->getMessage());
 			return null;
 		}		
