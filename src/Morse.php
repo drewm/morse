@@ -45,7 +45,6 @@ class Morse
 		try {
 			$class = new $classname;	
 		} catch ( \Exception $e ) {
-			die ($e->getMessage());
 			return null;
 		}		
 
