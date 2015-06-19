@@ -36,4 +36,9 @@ class String extends \DrewM\Morse\Feature
 	{
 		return (function_exists('ctype_alnum') && function_exists('ctype_lower'));
 	}
+
+	public function testIntl()
+	{
+		return (class_exists('Locale'));
+	}
 }

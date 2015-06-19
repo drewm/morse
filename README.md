@@ -134,6 +134,7 @@ Feature detection tests currently exist for the following:
 - string
 	- ctype
 	- iconv
+	- intl
 	- json
 	- multibyte
 	- transliterate
