@@ -6,9 +6,15 @@ class Morse
 {
 	const CLASS_SUPPORT = 1;
 	const FUNCTION_SUPPORT = 2;
+
+	protected static $disabled_functions = null;
  
 	public static function featureExists( $featureID )
 	{
+		if (is_null(self::$disabled_functions)) {
+			self::populate_disabled_functions_list();
+		}
+
 		try {
 			$feature = self::instantiateFromFeatureID($featureID);
 			
@@ -52,6 +58,21 @@ class Morse
 			new $class,
 			$funcname
 		);
+	}
+
+	private static function populate_disabled_functions_list()
+	{
+		if (function_exists('ini_get')) {
+			$disabled  = ini_get('disable_functions');
+			$blacklist = ini_get('suhosin.executor.func.blacklist');
+			if ("$disabled$blacklist") {
+				self::$disabled_functions = preg_split('/,\s*/', "$disabled,$blacklist");
+				return;
+			}
+		}
+
+		self::$disabled_functions = array();
+		return;
 	}
  
 }
