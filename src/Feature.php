@@ -13,4 +13,9 @@ class Feature
 	{
 		return true;
 	}
+
+	public static function functionAvailable($functionName)
+	{
+		return (function_exists($functionName) && !Morse::functionDisabled($functionName));
+	}
 }
