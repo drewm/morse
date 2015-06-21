@@ -6,7 +6,7 @@ class String extends \DrewM\Morse\Feature
 {
 	public function testMultibyte()
 	{
-		return (function_exists('mb_strpos'));
+		return (self::functionAvailable('mb_strpos'));
 	}
 
 	public function testTransliterate()
@@ -15,7 +15,7 @@ class String extends \DrewM\Morse\Feature
 			return \DrewM\Morse\Morse::CLASS_SUPPORT;
 		}
 
-		if (function_exists('transliterator_transliterate')) {
+		if (self::functionAvailable('transliterator_transliterate')) {
 			return \DrewM\Morse\Morse::FUNCTION_SUPPORT;	
 		}
 
@@ -24,17 +24,17 @@ class String extends \DrewM\Morse\Feature
 
 	public function testJson()
 	{
-		return (function_exists('json_encode') && function_exists('json_decode'));
+		return (self::functionAvailable('json_encode') && self::functionAvailable('json_decode'));
 	}
 
 	public function testIconv()
 	{
-		return (function_exists('iconv'));
+		return (self::functionAvailable('iconv'));
 	}
 
 	public function testCtype()
 	{
-		return (function_exists('ctype_alnum') && function_exists('ctype_lower'));
+		return (self::functionAvailable('ctype_alnum') && self::functionAvailable('ctype_lower'));
 	}
 
 	public function testIntl()

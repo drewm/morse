@@ -10,7 +10,7 @@ class File extends \DrewM\Morse\Feature
 			return \DrewM\Morse\Morse::CLASS_SUPPORT;
 		}
 
-		if (defined('FILEINFO_MIME') && function_exists('finfo_open')) {
+		if (defined('FILEINFO_MIME') && self::functionAvailable('finfo_open')) {
 			return \DrewM\Morse\Morse::FUNCTION_SUPPORT;	
 		}
 

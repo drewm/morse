@@ -6,16 +6,16 @@ class Crypto extends \DrewM\Morse\Feature
 {
 	public function testOpenssl()
 	{
-		return (defined('X509_PURPOSE_ANY') && function_exists('openssl_open'));
+		return (defined('X509_PURPOSE_ANY') && self::functionAvailable('openssl_open'));
 	}
 
 	public function testMcrypt()
 	{
-		return (defined('MCRYPT_ENCRYPT') && function_exists('mcrypt_encrypt'));
+		return (defined('MCRYPT_ENCRYPT') && self::functionAvailable('mcrypt_encrypt'));
 	}	
 
 	public function testPassword()
 	{
-		return (defined('PASSWORD_BCRYPT') && function_exists('password_hash'));
+		return (defined('PASSWORD_BCRYPT') && self::functionAvailable('password_hash'));
 	}
 }

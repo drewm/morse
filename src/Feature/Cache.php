@@ -6,7 +6,7 @@ class Cache extends \DrewM\Morse\Feature
 {
 	public function testMemcache()
 	{
-		return function_exists('memcache_get_version');
+		return self::functionAvailable('memcache_get_version');
 	}
 
 	public function testMemcached()
@@ -16,12 +16,12 @@ class Cache extends \DrewM\Morse\Feature
 
 	public function testApc()
 	{
-		return function_exists('apc_add');
+		return self::functionAvailable('apc_add');
 	}
 
 	public function testOpcache()
 	{
-		return function_exists('opcache_compile_file');
+		return self::functionAvailable('opcache_compile_file');
 	}
 
 
