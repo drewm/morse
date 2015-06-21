@@ -28,4 +28,10 @@ class MorseTest extends PHPUnit_Framework_TestCase
 		)), null);
 	}
 
+	public function testDisabledFunction()
+	{
+		$result = Morse::functionDisabled('exec');
+		$this->assertTrue($result === true || $result === false);
+	}
+
 }

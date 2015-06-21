@@ -7,14 +7,10 @@ class Morse
 	const CLASS_SUPPORT = 1;
 	const FUNCTION_SUPPORT = 2;
 
-	protected static $disabled_functions = null;
+	protected static $disabledFunctions = null;
  
-	public static function featureExists( $featureID )
+	public static function featureExists($featureID)
 	{
-		if (is_null(self::$disabled_functions)) {
-			self::populate_disabled_functions_list();
-		}
-
 		try {
 			$feature = self::instantiateFromFeatureID($featureID);
 			
@@ -28,7 +24,7 @@ class Morse
 		return null;
 	}
 
-	public static function getFirstAvailable( $featureIDs = array() )
+	public static function getFirstAvailable($featureIDs = array())
 	{
 		if (is_array($featureIDs) && count($featureIDs)) {
 			foreach($featureIDs as $featureID) {
@@ -42,7 +38,20 @@ class Morse
 		return null;
 	}
 
-	private static function instantiateFromFeatureID( $featureID )
+	public static function functionDisabled($functionName)
+	{
+		if (is_null(self::$disabledFunctions)) {
+			self::populateDisabledFunctionsList();
+		}
+
+		if (in_array($functionName, self::$disabledFunctions)) {
+			return true;
+		}
+
+		return false;
+	}
+
+	private static function instantiateFromFeatureID($featureID)
 	{
 		$parts     = explode('/', $featureID);
 		$classname = __NAMESPACE__ . '\\Feature\\' . \ucwords(\str_replace('-', '_', $parts[0]));
@@ -60,18 +69,18 @@ class Morse
 		);
 	}
 
-	private static function populate_disabled_functions_list()
+	private static function populateDisabledFunctionsList()
 	{
 		if (function_exists('ini_get')) {
 			$disabled  = ini_get('disable_functions');
 			$blacklist = ini_get('suhosin.executor.func.blacklist');
 			if ("$disabled$blacklist") {
-				self::$disabled_functions = preg_split('/,\s*/', "$disabled,$blacklist");
+				self::$disabledFunctions = preg_split('/,\s*/', "$disabled,$blacklist");
 				return;
 			}
 		}
 
-		self::$disabled_functions = array();
+		self::$disabledFunctions = array();
 		return;
 	}
  
