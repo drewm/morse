@@ -174,7 +174,7 @@ class Db extends \DrewM\Morse\Feature
 			return \DrewM\Morse\Morse::CLASS_SUPPORT;
 		}
 
-		if (function_exists('pongo_panda')) {
+		if (self::functionAvailable('pongo_panda')) {
 			return \DrewM\Morse\Morse::FUNCTION_SUPPORT;	
 		}
 
@@ -187,3 +187,8 @@ Feature classes should be big concepts (image, string, database) and the tests t
 
 Please write a corresponding PHPUnit test for the feature you're adding. Note that you can't rely on the environment, so just test that the detection works and returns a sane value.
 
+### Testing for function availability
+
+PHP gives us `function_exists()` for testing if a function has been declared. In some circumstances (e.g. when suhosin blacklisting is invoked), this can return `true` even if the function has been disabled and isn't available for use. Therefore, do the following within a feature class to detect whether a function is both declared _and_ not disabled:
+
+    self::functionAvailable('pongo_panda')
