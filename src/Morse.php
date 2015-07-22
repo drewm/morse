@@ -8,14 +8,21 @@ class Morse
 	const FUNCTION_SUPPORT = 2;
 
 	protected static $disabledFunctions = null;
+
+	private static $resultCache = [];
  
 	public static function featureExists($featureID)
 	{
+		if (array_key_exists($featureID, self::$resultCache)) {
+			return self::$resultCache[$featureID];
+		}
+
 		try {
 			$feature = self::instantiateFromFeatureID($featureID);
 			
 			if (is_callable($feature)) {
-				return call_user_func($feature);	
+				self::$resultCache[$featureID] = call_user_func($feature);	
+				return self::$resultCache[$featureID];
 			}
 		} catch ( \Exception $e ) {
 			return null;
