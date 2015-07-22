@@ -9,7 +9,7 @@ class Morse
 
 	protected static $disabledFunctions = null;
 
-	private static $resultCache = [];
+	private static $resultCache = array();
  
 	public static function featureExists($featureID)
 	{
