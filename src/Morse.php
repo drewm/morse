@@ -7,7 +7,6 @@ class Morse
 	const CLASS_SUPPORT = 1;
 	const FUNCTION_SUPPORT = 2;
 
-	
 	protected static $disabledFunctions = null;
 
 	private static $resultCache = array();
