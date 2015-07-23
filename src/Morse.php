@@ -1,21 +1,26 @@
 <?php 
-
 namespace DrewM\Morse;
- 
+
 class Morse 
 {
 	const CLASS_SUPPORT = 1;
 	const FUNCTION_SUPPORT = 2;
 
+	/**
+	 * In-memory cache of disabled functions names.
+	 */
 	protected static $disabledFunctions = null;
 
+	/**
+	 * In-memory cache of test results, so that each test need only be performed once per request.
+	 */
 	private static $resultCache = array();
- 
+
  	/**
  	 * Tests if the named feature exists in the current environment.
  	 * 
- 	 * @param 	string 		$featureID 	The identifier for the feature, e.g. 'db/pdo'
- 	 * @return 	bool|null 				Returns true or false, or null if an error occured.
+ 	 * @param  string $featureID The identifier for the feature, e.g. 'db/pdo'
+ 	 * @return bool|null Returns true or false, or null if an error occured.
  	 */
 	public static function featureExists($featureID)
 	{
@@ -40,8 +45,8 @@ class Morse
 	/**
 	 * Tests an array of feature identifiers, stopping and returnig the first that tests true.
 	 * 
-	 * @param 	array 	$featureIDs Array of feature ID strings. If associative, the value is the ID, and the key is returned.
-	 * @return string 				Returns the first feature ID that tests true.
+	 * @param array $featureIDs Array of feature ID strings. If associative, the value is the ID, and the key is returned.
+	 * @return string Returns the first feature ID that tests true.
 	 */
 	public static function getFirstAvailable(array $featureIDs = array())
 	{
@@ -60,8 +65,8 @@ class Morse
 	/**
 	 * Tests if the named function is present and enabled in the current environment.
 	 * 
-	 * @param string $functionName 	The name of the function to test.
-	 * @return bool 				True if the function is disabled, false if it is available.
+	 * @param string $functionName The name of the function to test.
+	 * @return bool True if the function is disabled, false if it is available.
 	 */
 	public static function functionDisabled($functionName)
 	{
@@ -80,8 +85,8 @@ class Morse
 	/**
 	 * Instantiates a test class for the given feature identifier.
 	 * 
-	 *  @param string 	$featureID 	Feature identifier
-	 * @return callable 			A callable array of class and method name.
+	 *  @param string $featureID Feature identifier
+	 * @return callable A callable array of class and method name.
 	 */
 	private static function instantiateFromFeatureID($featureID)
 	{
@@ -120,5 +125,5 @@ class Morse
 		self::$disabledFunctions = array();
 		return;
 	}
- 
+
 }
