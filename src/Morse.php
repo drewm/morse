@@ -7,10 +7,17 @@ class Morse
 	const CLASS_SUPPORT = 1;
 	const FUNCTION_SUPPORT = 2;
 
+	
 	protected static $disabledFunctions = null;
 
 	private static $resultCache = array();
  
+ 	/**
+ 	 * Tests if the named feature exists in the current environment.
+ 	 * 
+ 	 * @param 	string 		$featureID 	The identifier for the feature, e.g. 'db/pdo'
+ 	 * @return 	bool|null 				Returns true or false, or null if an error occured.
+ 	 */
 	public static function featureExists($featureID)
 	{
 		if (array_key_exists($featureID, self::$resultCache)) {
@@ -31,7 +38,13 @@ class Morse
 		return null;
 	}
 
-	public static function getFirstAvailable($featureIDs = array())
+	/**
+	 * Tests an array of feature identifiers, stopping and returnig the first that tests true.
+	 * 
+	 * @param 	array 	$featureIDs Array of feature ID strings. If associative, the value is the ID, and the key is returned.
+	 * @return string 				Returns the first feature ID that tests true.
+	 */
+	public static function getFirstAvailable(array $featureIDs = array())
 	{
 		if (is_array($featureIDs) && count($featureIDs)) {
 			foreach($featureIDs as $featureID) {
@@ -45,6 +58,12 @@ class Morse
 		return null;
 	}
 
+	/**
+	 * Tests if the named function is present and enabled in the current environment.
+	 * 
+	 * @param string $functionName 	The name of the function to test.
+	 * @return bool 				True if the function is disabled, false if it is available.
+	 */
 	public static function functionDisabled($functionName)
 	{
 		if (is_null(self::$disabledFunctions)) {
@@ -58,6 +77,13 @@ class Morse
 		return false;
 	}
 
+
+	/**
+	 * Instantiates a test class for the given feature identifier.
+	 * 
+	 *  @param string 	$featureID 	Feature identifier
+	 * @return callable 			A callable array of class and method name.
+	 */
 	private static function instantiateFromFeatureID($featureID)
 	{
 		$parts     = explode('/', $featureID);
@@ -76,6 +102,11 @@ class Morse
 		);
 	}
 
+	/**
+	 * Populates the internal memory cache of functions that have been disabled in the current environment
+	 * 
+	 * @return void
+	 */
 	private static function populateDisabledFunctionsList()
 	{
 		if (function_exists('ini_get')) {
