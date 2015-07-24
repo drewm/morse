@@ -19,7 +19,7 @@ class Morse
  	/**
  	 * Tests if the named feature exists in the current environment.
  	 *
- 	 * @param  string $featureID The identifier for the feature, e.g. 'db/pdo'
+ 	 * @param string $featureID The identifier for the feature, e.g. 'db/pdo'.
  	 * @return bool|null Returns true or false, or null if an error occured.
  	 */
 	public static function featureExists($featureID)

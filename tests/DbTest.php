@@ -1,8 +1,8 @@
 <?php
- 
+
 use DrewM\Morse\Morse;
- 
-class DbTest extends PHPUnit_Framework_TestCase 
+
+class DbTest extends PHPUnit_Framework_TestCase
 {
 	public function testPdo()
 	{

@@ -1,8 +1,8 @@
 <?php
- 
+
 use DrewM\Morse\Morse;
- 
-class FileTest extends PHPUnit_Framework_TestCase 
+
+class FileTest extends PHPUnit_Framework_TestCase
 {
 	public function testFinfo()
 	{

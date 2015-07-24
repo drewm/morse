@@ -1,8 +1,8 @@
 <?php
- 
+
 use DrewM\Morse\Morse;
- 
-class CryptoTest extends PHPUnit_Framework_TestCase 
+
+class CryptoTest extends PHPUnit_Framework_TestCase
 {
 	public function testOpenssl()
 	{

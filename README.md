@@ -2,7 +2,7 @@
 
 Morse is a feature detection library for PHP code that needs to run in multiple different environments.
 
-[![Build Status](https://travis-ci.org/drewm/morse-php.svg?branch=master)](https://travis-ci.org/drewm/morse-php) 
+[![Build Status](https://travis-ci.org/drewm/morse-php.svg?branch=master)](https://travis-ci.org/drewm/morse-php)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/drewm/morse-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/drewm/morse-php/?branch=master)
 
 Supports PHP 5.3 and up.
@@ -11,16 +11,16 @@ Supports PHP 5.3 and up.
 
 Writing PHP that works in unknown (some sometimes hostile) environments is hard. You don't always know what functionality is available to you, so you have to test for it. Morse is a library to encapsulate those tests.
 
-Most tests are really simple - just a `function_exists()` or similar - but you can often end up needing to repeat that test over and over across your codebase. Morse centralises those tests, providing reusability and consistancy. 
+Most tests are really simple - just a `function_exists()` or similar - but you can often end up needing to repeat that test over and over across your codebase. Morse centralises those tests, providing reusability and consistancy.
 
 Some tests aren't so simple, perhaps due to _that one weird PHP bug_ or unusual hosting configurations or whatever. You have to do a weird dance to check if something is _really_ going to work. Morse takes care of that, and keeps the weird dancing out of your application code, safe from the next developer who thinks it's dumb and rips it out.
 
-## Install 
+## Install
 
 Either download and include, or install via Composer:
 
 ```
-composer require drewm/morse-php
+composer require drewm/morse
 ```
 
 ## How to
@@ -55,7 +55,7 @@ but equally:
 
 ```php
 switch(Morse::featureExists('file/finfo')) {
-	case Morse::CLASS_SUPPORT: 
+	case Morse::CLASS_SUPPORT:
 		$finfo = new finfo(...);
 		break;
 
@@ -82,7 +82,7 @@ or
 
 ```php
 $best_match = Morse::getFirstAvailable([
-					'image/gd' => 'gd', 
+					'image/gd' => 'gd',
 					'image/imagick' => 'imagick'
 				]);
 
@@ -175,7 +175,7 @@ class Db extends \DrewM\Morse\Feature
 		}
 
 		if (self::functionAvailable('pongo_panda')) {
-			return \DrewM\Morse\Morse::FUNCTION_SUPPORT;	
+			return \DrewM\Morse\Morse::FUNCTION_SUPPORT;
 		}
 
 		return false;

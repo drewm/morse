@@ -1,8 +1,8 @@
 <?php
- 
+
 use DrewM\Morse\Morse;
- 
-class CacheTest extends PHPUnit_Framework_TestCase 
+
+class CacheTest extends PHPUnit_Framework_TestCase
 {
 	public function testMemcache()
 	{
@@ -20,7 +20,7 @@ class CacheTest extends PHPUnit_Framework_TestCase
 	{
 		$result = Morse::featureExists('cache/apc');
 		$this->assertTrue($result===true || $result===false);
-	}	
+	}
 
 	public function testOpcache()
 	{

@@ -1,8 +1,8 @@
 <?php
- 
+
 use DrewM\Morse\Morse;
- 
-class ImageTest extends PHPUnit_Framework_TestCase 
+
+class ImageTest extends PHPUnit_Framework_TestCase
 {
 	public function testGd()
 	{

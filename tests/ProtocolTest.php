@@ -1,8 +1,8 @@
 <?php
- 
+
 use DrewM\Morse\Morse;
- 
-class ProtocolTest extends PHPUnit_Framework_TestCase 
+
+class ProtocolTest extends PHPUnit_Framework_TestCase
 {
 	public function testLdap()
 	{

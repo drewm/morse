@@ -1,8 +1,8 @@
 <?php
- 
+
 use DrewM\Morse\Morse;
- 
-class HttpTest extends PHPUnit_Framework_TestCase 
+
+class HttpTest extends PHPUnit_Framework_TestCase
 {
 	public function testCurl()
 	{
