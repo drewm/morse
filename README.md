@@ -2,8 +2,8 @@
 
 Morse is a feature detection library for PHP code that needs to run in multiple different environments.
 
-[![Build Status](https://travis-ci.org/drewm/morse-php.svg?branch=master)](https://travis-ci.org/drewm/morse-php)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/drewm/morse-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/drewm/morse-php/?branch=master)
+[![Build Status](https://travis-ci.org/drewm/morse.svg?branch=master)](https://travis-ci.org/drewm/morse)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/drewm/morse/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/drewm/morse/?branch=master)
 
 Supports PHP 5.3 and up.
 
