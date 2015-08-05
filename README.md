@@ -138,6 +138,16 @@ Feature detection tests currently exist for the following:
 	- json
 	- multibyte
 	- transliterate
+- system
+	- exec
+	- ignore_user_abort
+	- ini_set
+	- passthru
+	- popen
+	- proc_open
+	- set_time_limit
+	- shell_exec
+	- system
 
 ## Contributing feature tests
 
