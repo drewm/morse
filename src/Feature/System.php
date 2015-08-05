@@ -4,8 +4,6 @@ namespace DrewM\Morse\Feature;
 
 class System extends \DrewM\Morse\Feature
 {
-	private static $disabled = null;
-
 	public function testExec()
 	{
 		return self::functionAvailable('exec');
@@ -50,6 +48,5 @@ class System extends \DrewM\Morse\Feature
 	{
 		return self::functionAvailable('proc_open');
 	}
-
 
 }
