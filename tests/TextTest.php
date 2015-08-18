@@ -2,41 +2,35 @@
 
 use DrewM\Morse\Morse;
 
-class StringTest extends PHPUnit_Framework_TestCase
+class TextTest extends PHPUnit_Framework_TestCase
 {
 	public function testMultibyte()
 	{
-		$result = Morse::featureExists('string/multibyte');
+		$result = Morse::featureExists('text/multibyte');
 		$this->assertTrue($result===true || $result===false);
 	}
 
 	public function testTransliterate()
 	{
-		$result = Morse::featureExists('string/transliterate');
+		$result = Morse::featureExists('text/transliterate');
 		$this->assertTrue($result===Morse::CLASS_SUPPORT || $result===Morse::FUNCTION_SUPPORT || $result===false);
-	}
-
-	public function testJson()
-	{
-		$result = Morse::featureExists('string/json');
-		$this->assertTrue($result===true || $result===false);
 	}
 
 	public function testIconv()
 	{
-		$result = Morse::featureExists('string/iconv');
+		$result = Morse::featureExists('text/iconv');
 		$this->assertTrue($result===true || $result===false);
 	}
 
 	public function testCtype()
 	{
-		$result = Morse::featureExists('string/ctype');
+		$result = Morse::featureExists('text/ctype');
 		$this->assertTrue($result===true || $result===false);
 	}
 
 	public function testIntl()
 	{
-		$result = Morse::featureExists('string/intl');
+		$result = Morse::featureExists('text/intl');
 		$this->assertTrue($result===true || $result===false);
 	}
 }

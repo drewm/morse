@@ -24,7 +24,7 @@ class MorseTest extends PHPUnit_Framework_TestCase
 		)), 'fake-positive');
 
 		$this->assertSame(Morse::getFirstAvailable(array(
-			'string/fake-negative',
+			'text/fake-negative',
 		)), null);
 	}
 

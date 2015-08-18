@@ -111,6 +111,8 @@ Feature detection tests currently exist for the following:
 	- mcrypt
 	- openssl
 	- password
+- data
+	- json
 - db
 	- mysqli
 	- pdo
@@ -131,13 +133,6 @@ Feature detection tests currently exist for the following:
 	- bigint
 - protocol
 	- ldap
-- string
-	- ctype
-	- iconv
-	- intl
-	- json
-	- multibyte
-	- transliterate
 - system
 	- exec
 	- ignore_user_abort
@@ -148,6 +143,12 @@ Feature detection tests currently exist for the following:
 	- set_time_limit
 	- shell_exec
 	- system
+- text
+	- ctype
+	- iconv
+	- intl
+	- multibyte
+	- transliterate
 
 ## Contributing feature tests
 
@@ -193,7 +194,7 @@ class Db extends \DrewM\Morse\Feature
 }
 ```
 
-Feature classes should be big concepts (image, string, database) and the tests themselves should be specific features.
+Feature classes should be big concepts (image, text, database) and the tests themselves should be specific features.
 
 Please write a corresponding PHPUnit test for the feature you're adding. Note that you can't rely on the environment, so just test that the detection works and returns a sane value.
 

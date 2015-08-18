@@ -2,7 +2,7 @@
 
 namespace DrewM\Morse\Feature;
 
-class String extends \DrewM\Morse\Feature
+class Text extends \DrewM\Morse\Feature
 {
 	public function testMultibyte()
 	{
@@ -16,7 +16,7 @@ class String extends \DrewM\Morse\Feature
 		}
 
 		if (self::functionAvailable('transliterator_transliterate')) {
-			return \DrewM\Morse\Morse::FUNCTION_SUPPORT;	
+			return \DrewM\Morse\Morse::FUNCTION_SUPPORT;
 		}
 
 		return false;
